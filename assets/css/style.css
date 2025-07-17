@@ -177,7 +177,7 @@ h2 {
 
 .top-bar{
   padding: 10px 0px;
-  background-color: #e8f0ef;
+  background-color: #f9ca7f;
   display: none;
 }
 
@@ -311,13 +311,57 @@ h2 {
 /* -------header-section-end------ */
 
 /* ----Hero-Section-Start---- */
-.hero-slide{
-  padding: 150px 0px 150px;
+.hero-sections {
+  position: relative;
+  padding: 100px 0px;
   color: #fff;
-  background-image: linear-gradient(rgb(0 0 0 / 75%), rgb(0 0 0 / 72%)), url(../images/hero-1.png);
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
+  
+  
 }
+
+/* 🔴 Fullscreen Responsive Video */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Change opacity if needed */
+  z-index: 2;
+}
+
+/* 🔵 Content comes on top of video */
+.hero-slide {
+  position: relative;
+  z-index: 2; /* Optional dark overlay */
+  padding: 50px 0;
+}
+
+/* Optional: Media Query for small screens */
+@media (max-width: 768px) {
+  .hero-sections {
+    padding: 10px 8px;
+  }
+
+  .hero-box h2 {
+    font-size: 28px;
+  }
+
+  .hero-box p {
+    font-size: 16px;
+  }
+}
+
 .hero-slide h2{
   font-size: 60px;
   font-weight: 700;
@@ -933,39 +977,25 @@ z-index: 2;
 
 .banner-section {
   position: relative;
-  padding: 100px 0;
+  padding: 100px 0px;
+  background-image: url(../images/banner-1.jpg);
+  background-size: cover;
+  background-position: center;
   color: #fff;
   text-align: center;
+  z-index: 1;
   overflow: hidden;
 }
 
-.bg-video {
+.banner-section::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
-  object-fit: cover;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity here */
   z-index: -1;
-}
-
-.banner-title {
-  position: relative;
-  z-index: 2;
-}
-
-.banner-title ul {
-  padding: 0;
-  margin: 10px 0 0;
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.banner-title ul li a {
-  color: #fff;
-  text-decoration: none;
 }
 
 .banner-title h2{
@@ -1086,6 +1116,7 @@ z-index: 2;
   position: relative;
   z-index: 4;
   font-weight: 600;
+  color: #000;
 }
 .contact-box:hover address {
   color: #fff;
@@ -1094,6 +1125,7 @@ z-index: 2;
   margin-bottom: 0;
   position: relative;
   z-index: 4;
+  color: #000;
 }
 .contact-box p{
   margin: 0px;
