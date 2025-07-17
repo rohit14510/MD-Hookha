@@ -64,3 +64,23 @@ $(window).scroll(function() {
             event.preventDefault();
             
         });
+
+        //button
+         const catButtons = document.querySelectorAll('.cat-btn');
+  const productCards = document.querySelectorAll('.product-card');
+
+  catButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      catButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const selectedCategory = btn.getAttribute('data-category');
+
+      productCards.forEach(card => {
+        card.classList.add('d-none');
+        if (card.getAttribute('data-category') === selectedCategory) {
+          card.classList.remove('d-none');
+        }
+      });
+    });
+  });
